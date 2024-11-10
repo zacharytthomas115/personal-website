@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import About from './pages/About';
+import styles from './styles/styles.modules.css';
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState('Home');
@@ -22,12 +23,13 @@ const App = () => {
   };
 
   return (
+    
     <div>
       <nav>
-        <button onClick={() => setCurrentScreen('Home')}>Home</button>
-        <button onClick={() => setCurrentScreen('Contact')}>Contact</button>
-        <button onClick={() => setCurrentScreen('Projects')}>Projects</button>
-        <button onClick={() => setCurrentScreen('About')}>About</button>
+        <button className='button' onClick={() => setCurrentScreen('Home')}>Home</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('Contact')}>Contact</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('Projects')}>Projects</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('About')}>About</button>
       </nav>
       {renderScreen()}
     </div>
