@@ -1,0 +1,33 @@
+/* App.css */
+.body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    fill: firebrick;
+    padding: 1rem;
+    background-color: greenyellow;
+    color: green;
+
+  }
+  
+  .nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+
+  .button.large-button {
+    width: 200%;
+    height: 200%;
+    background-color: darkblue;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: white; /* optional: makes the text stand out */
+    border: none;
+    padding: 10px; /* optional: adds some padding around text */
+    cursor: pointer; /* optional: changes cursor to pointer on hover */
+  }

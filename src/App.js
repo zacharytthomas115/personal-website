@@ -1,99 +1,39 @@
-import React from 'react';
-import Header from './components/Header';
-import ReactDOM from 'react-dom'
-// import Home from './pages/Home';
+// src/App.js
+import React, { useState } from 'react';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import About from './pages/About';
+import styles from './styles/styles.modules.css';
 
-// State Context
-const StateContext = React.createContext();
-
-const initialState = {
-  screen: 'Home'
-};
-
-const stateReducer = (state, action) => {
-  switch (action.type) {
-    case 'SET_SCREEN':
-      return { ...state, screen: action.payload };
-    default:
-      return state;
-  }
-};
-
-export const StateProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(stateReducer, initialState);
-  
-  return (
-    <StateContext.Provider value={{ state, dispatch }}>
-      {children}
-    </StateContext.Provider>
-  );
-};
-
-// Example Component
-const Home = () => {
-  const { state, dispatch } = React.useContext(StateContext);
-  return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', payload: 'About' })}>
-        Go to About
-      </button>
-    </div>
-  );
-};
-
-const About = () => {
-  const { state, dispatch } = React.useContext(StateContext);
-  return (
-    <div>
-      <h1>About</h1>
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', payload: 'Projects' })}>
-        Go to Projects
-      </button>
-    </div>
-  );
-};
-const Projects = () => {
-  const { state, dispatch } = React.useContext(StateContext);
-  return (
-    <div>
-      <h1>About</h1>
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', payload: 'Projects' })}>
-        Go to Projects
-      </button>
-    </div>
-  );
-};
-
-const Contact = () => {
-  const { state, dispatch } = React.useContext(StateContext);
-  return (
-    <div>
-      <h1>About</h1>
-      <button onClick={() => dispatch({ type: 'SET_SCREEN', payload: 'Projects' })}>
-        Go to Projects
-      </button>
-    </div>
-  );
-};
-// Main App
 const App = () => {
-  const { state } = React.useContext(StateContext);
+  const [currentScreen, setCurrentScreen] = useState('Home');
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case 'Contact':
+        return <Contact />;
+      case 'Projects':
+        return <Projects />;
+      case 'About':
+        return <About />;
+      default:
+        return <Home />;
+    }
+  };
 
   return (
+    
     <div>
-      {state.screen === 'Home' && <Home />}
-      {state.screen === 'Projects' && <Projects />}
+      <nav>
+        <button className='button' onClick={() => setCurrentScreen('Home')}>Home</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('Contact')}>Contact</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('Projects')}>Projects</button>
+        <button className={styles.button} onClick={() => setCurrentScreen('About')}>About</button>
+      </nav>
+      {renderScreen()}
     </div>
   );
 };
-
-// Usage
-ReactDOM.render(
-  <StateProvider>
-    <App />
-  </StateProvider>,
-  document.getElementById('root')
-);
 
 export default App;

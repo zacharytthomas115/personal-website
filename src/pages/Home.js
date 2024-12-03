@@ -1,12 +1,11 @@
+// src/Home.js
 import React from 'react';
 
-const Home = () => {
-  return (
-    <section id="home">
-      <h2>Welcome to My Portfolio</h2>
-      <p>This is my personal website built with React.</p>
-    </section>
-  );
-}
+const Home = () => (
+  <div>
+    <h1 className='header'>Home</h1>
+    <p>Welcome to the Home page!</p>
+  </div>
+);
 
 export default Home;
