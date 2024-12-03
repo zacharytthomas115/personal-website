@@ -1,9 +1,9 @@
 // src/App.js
 import React, { useState } from 'react';
-import Home from './pages/Home';
-import Contact from './pages/Contact';
-import Projects from './pages/Projects';
-import About from './pages/About';
+import Home from './pages/Home.js';
+import Contact from './pages/Contact.js';
+import Projects from './pages/Projects.js';
+import About from './pages/About.js';
 import styles from './styles/styles.modules.css';
 
 const App = () => {
